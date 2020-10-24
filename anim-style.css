@@ -1,0 +1,111 @@
+* {
+    overflow: hidden;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+}
+a {
+    text-align: center;
+    background-color: chartreuse;
+    color: black;
+    font-weight: bold;
+    font-size: 2vmax;
+    position: absolute;
+    top: 47.4vh;
+    left: 40.21vw;
+    padding: 1vh 1vw;
+    border-radius: 5vw;
+}
+a:hover {
+    animation: button-size 50ms ease 6 alternate-reverse, button-color 500ms ease-out 1 reverse backwards;
+}
+
+#shape {
+    animation: move-around 4000ms ease infinite;
+    animation-play-state: running;
+}
+#turner {
+    background: none;
+    width: 0vw;
+    height: 0vh;
+    border-top: solid 10vw yellow;
+    border-right: solid 10vw transparent;
+    border-left: solid 10vw yellow;
+    border-bottom: solid 10vw yellow;
+    border-radius: 100%;
+    animation: chomp-chomp 250ms cubic-bezier(0.5,0,0.5,0) alternate infinite, turn-right 4000ms cubic-bezier(0.75,0,0.75,0) infinite;
+    position: relative;
+}
+#eye {
+    width: 0vw;
+    height: 0vh;
+    border-radius: 100%;
+    border-top: solid 1vw black;
+    border-right: solid 1vw black;
+    border-left: solid 1vw white;
+    border-bottom: solid 1vw black;
+    position: absolute;
+    z-index: 2;
+    top: 5vw;
+    left: 8.5vw;
+    animation: eye-position 4000ms cubic-bezier(0.75,0,0.75,0) infinite, turn-right 4000ms cubic-bezier(0.75,0,0.75,0) infinite;
+}
+@keyframes button-size {
+    100% {
+        transform: rotate(2deg);
+    }
+}
+@keyframes button-color {
+    100% {
+        background: gold;
+    }
+}
+@keyframes eye-position {
+    25% {
+        top: 8.5vw;
+        left: 5vw;
+    }
+    50% {
+        top: 5vw;
+        left: 8.5vw;
+    }
+    75% {
+        top: 8.5vw;
+        left: 5vw;
+    }
+}
+@keyframes chomp-chomp {
+    100% {
+        border-right: solid 10vw yellow;
+    }
+}
+@keyframes move-around {
+    25% {
+        transform: translate(77.5vw, 0vh);
+    }
+    50% {
+        transform: translate(77.5vw, 60vh);
+    }
+    75% {
+        transform: translate(0vw, 60vh);
+    }
+    100% {
+        transform: translate(0vw, 0vh);
+    }
+}
+@keyframes turn-right {
+    25% {
+        transform: rotate(90deg);
+    }
+    50% {
+        transform: rotate(180deg);
+    }
+    75% {
+        transform: rotate(270deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
